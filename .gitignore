@@ -10,3 +10,4 @@
 kversion.c
 tags
 !threads.o
+kernel7.*
