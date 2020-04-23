@@ -162,3 +162,18 @@ syscall_dump_range(long start_addr, long end_addr, long width)
 
 	return r0;
 }
+
+int
+syscall_get_core_id(int device)
+{
+	register long r7 asm("r7") = SYSCALL_GET_CORE_ID;
+	register long r0 asm("r0") = device;
+
+	asm volatile (
+		"svc #2\n"
+		: "=r"(r0)			// output: return readval
+		: "r"(r0), "r"(r7)	// input: syscall & arg/s
+		: "memory");
+
+	return r0;
+}
