@@ -14,6 +14,7 @@ enum syscalls {
 	SYSCALL_PROCESSES,
 	SYSCALL_DUMP_RANGE,
 	// insert new ones here
+	SYSCALL_GET_CORE_ID,
 	MAX_SYSCALLS,
 };
 
@@ -27,4 +28,5 @@ int syscall_write_block(int device, void *buffer, int bytes);
 int syscall_start_thread(long name, long start_address);
 int syscall_list_processes();
 int syscall_dump_range(long start_addr, long end_address, long width);
+int syscall_get_core_id(int device);
 
