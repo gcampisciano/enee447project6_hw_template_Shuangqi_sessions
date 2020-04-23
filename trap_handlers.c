@@ -106,9 +106,7 @@ trap_handler(unsigned long r0, unsigned long r1, unsigned long r2)
 			break;
 		case SYSCALL_GET_CORE_ID:
 			log("SYSCALL_GET_CORE_ID device =", r0);
-			if(r0 < MAX_DEVICES) {
-				return devtab[r0].read();
-			}
+			return cpu_id();
 			break;
 		case SYSCALL_DUMP_RANGE:
 			log("SYSCALL_DUMP_RANGE start =", r0);
